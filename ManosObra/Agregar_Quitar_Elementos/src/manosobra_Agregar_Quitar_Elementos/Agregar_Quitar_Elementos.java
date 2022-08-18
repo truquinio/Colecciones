@@ -18,57 +18,59 @@ public class Agregar_Quitar_Elementos {
 
 //LISTA:  (Pueden repetir elementos)
         System.out.println("___LISTAS______________________________________\n");
-        
+
         ArrayList<Integer> numerosA = new ArrayList();
 
-        System.out.println("Listado vacío: " + numerosA);
-
+        System.out.println("Listado vacío: " + numerosA + "\n");
         //int x = 10;
+
         //Agregar 5 elementos con FOR (i):
         for (int i = 0; i < 5; i++) {
             numerosA.add(i);
         }
-        System.out.println("Listado lleno c/ for (i): " + numerosA + "\n");
+        System.out.println("Listado lleno c/ for (i): " + numerosA);
 
         //Agregar 5 elementos con FOR EACH:
+        System.out.print("Listado lleno c/ for each: ");
         for (Integer integer : numerosA) {
-            System.out.println("Listado lleno c/ for each: " + integer);
+            System.out.print(integer + " ");
         }
         System.out.println("");
 
         //Eliminar por índice:
         numerosA.remove(2); //remove.int
 
-        System.out.println("Elimino índice 2 del listado: " + numerosA);
+        System.out.println("\nElimino índice #2 del listado: " + numerosA);
 
         //Eliminar por elementos:
         numerosA.remove(2); //remove.object
 
-        System.out.println("Elimino objeto 2 del listado: " + numerosA);
+        System.out.println("Elimino elemento #2 del listado: " + numerosA);
 
 //CONJUNTO:  (No pueden repetir elementos)
         System.out.println("\n___CONJUNTOS_________________________________\n");
 
         TreeSet<Integer> numerosB = new TreeSet();
 
-        System.out.println("Conjunto vacío: " + numerosB);
+        System.out.println("Conjunto vacío: " + numerosB + "\n");
 
         //Agregar 5 elementos con FOR (i):
         for (int i = 0; i < 5; i++) {
             numerosB.add(i);
         }
-        System.out.println("Conjunto lleno: " + numerosB + "\n");
+        System.out.println("Conjunto lleno c/ for (i): " + numerosB);
 
         //Agregar 5 elementos con FOR EACH:
+        System.out.print("Conjunto lleno c/ for each: ");
         for (Integer integer : numerosB) {
-            System.out.println("Conjunto lleno c/ for each: " + integer);
+            System.out.print(integer + " ");
         }
         System.out.println("");
-
+        
         //Eliminar por elementos:
         numerosB.remove(3);
 
-        System.out.println("Elimino objeto 3 del conjunto: " + numerosA);
+        System.out.println("\nElimino elemento #3 del conjunto: " + numerosA);
 
 //MAPA:
         System.out.println("\n___MAPAS_____________________________________\n");
@@ -103,7 +105,7 @@ public class Agregar_Quitar_Elementos {
         }
 
         //Eliminar por llave:
-        System.out.println("\nIngrese el DNI a eliminar:");
+        System.out.println("\nIngrese DNI a eliminar:");
         int dni2 = leer.nextInt();
 
         alumnos.remove(dni2);
