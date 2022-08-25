@@ -19,7 +19,6 @@ pantalla.
 pantalla.
 •  Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.
 •  Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.
-
  */
 package Servicio;
 
@@ -66,18 +65,7 @@ public class ServicioPeli {
         } while (!opcionSiNo.equals("n"));
     }
 
-    /*
-•  Mostrar en pantalla todas las películas.
-•  Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
-•  Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en 
-pantalla.
-•  Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en 
-pantalla.
-•  Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.
-•  Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.
-
-     */
-    
+///MOSTRAR TODAS LAS PELIS:  
 public void mostrarPeliculas(){
     
     for (Pelicula moviesForEach : arrayMovies) {
@@ -104,12 +92,12 @@ public void mostrarPeliculas(){
 ///ORDENAR PELIS ASCENDENTE y DESCENDENTE:
     public void ordenarPeliculas(){
         
-        System.out.println("\nDe menor a mayor duración:");
+        System.out.println("\nDuración (- a +)");
         Collections.sort(arrayMovies, Comparador.compararDuracionAscendente);
         
         mostrarPeliculas();
         
-        System.out.println("\nDe mayor a menor duración:");
+        System.out.println("\nDuración (+ a -)");
         Collections.sort(arrayMovies, Comparador.compararDuracionDescendente);
         
         mostrarPeliculas();
@@ -142,10 +130,10 @@ public void mostrarPeliculas(){
         System.out.println("\nORDENANDO PELIS___________________");
         ordenarPeliculas();
         
-        System.out.println("\nORDENANDO PELIS x TÍTULOS___________________");
+        System.out.println("\nTítulos (A-Z)___________________");
         ordenarTitulos();
         
-        System.out.println("\nORDENANDO PELIS x DIRECTOR___________________");
+        System.out.println("\nDirector (A-Z)___________________");
         ordenarDirector();
     }
 }
