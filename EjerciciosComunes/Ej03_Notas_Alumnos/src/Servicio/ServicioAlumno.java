@@ -25,9 +25,10 @@ public class ServicioAlumno {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
+    //Lista que contendrá a los alumnos:
     ArrayList<Alumno> arrayAlumnos = new ArrayList();
 
-    ///MÉTODO CREAR ALUMNO:
+///MÉTODO CREAR ALUMNO:
     public void crearAlumno() {
 
         String opcionSiNo;
@@ -35,7 +36,7 @@ public class ServicioAlumno {
         do {
 
             System.out.println("Ingrese nombre de alumno:");
-            String nombre = leer.next();
+            String nombre = leer.next().toLowerCase();
 
             System.out.println("\nIngrese 3 notas:");
             int nota1 = leer.nextInt();
@@ -44,9 +45,13 @@ public class ServicioAlumno {
 
             arrayAlumnos.add(new Alumno(nombre, nota1, nota2, nota3));
 
-            System.out.println("\n¿Desea ingresar otro alumno? s/n");
-            opcionSiNo = leer.next().toLowerCase();
-            
+            do {
+
+                System.out.println("\n¿Desea ingresar otro alumno? s/n");
+                opcionSiNo = leer.next().toLowerCase();
+
+            } while (!opcionSiNo.equals("n") && !opcionSiNo.equals("s"));
+
             System.out.println("");
 
         } while (!opcionSiNo.equals("n"));
@@ -64,37 +69,47 @@ public class ServicioAlumno {
 
         do {
             System.out.println("Ingrese alumno para saber su nota final: ");
-            String nombre2 = leer.next();
-            
-            boolean notaFinal = true;
+            String nombre2 = leer.next().toLowerCase();
 
-            for (Alumno arrayAlumnoAuxiliar : arrayAlumnos) {
+            boolean alumnoEncontrado = false;
 
-                if (arrayAlumnoAuxiliar.getNombre().equals(nombre2)) {
+            //Busca en la lista el alumno ingresado por teclado:
+            for (Alumno listaAlumnoForEach : arrayAlumnos) {
 
-                    System.out.println("\nLa nota final de alumno es: " + calculoNotaFinal(arrayAlumnoAuxiliar));
+                //Comparo si el nombre a buscar es igual a alguno de la lista
+                if (listaAlumnoForEach.getNombre().equals(nombre2)) {
 
-                } else {
-                    System.out.println("\nEl Alumno ingresado no se encuentra en la lista");
+                    alumnoEncontrado = true;
 
+//Llamo al método calcularPromedio que hice más abajo:
+                    System.out.println("\nPromedio del alumno: " + calcularPromedio(listaAlumnoForEach));
                 }
             }
+            if (alumnoEncontrado == false) {
 
-            System.out.println("\nDesea saber la nota final de otro alumno? s/n ");
+                System.out.println("Alumno no encontrado.");
+            }
 
-            opcionSiNo = leer.next();
+            do {
+
+                System.out.println("\n¿Desea calcular promedio de otro alumno? s/n");
+                opcionSiNo = leer.next();
+
+            } while (!opcionSiNo.equals("n") && !opcionSiNo.equals("s"));
 
         } while (!opcionSiNo.equals("n"));
+
+        System.out.println("");
     }
 
-    //metodo de calculo de nota
-    public float calculoNotaFinal(Alumno arrayAlumnoAuxiliar) {
+///MÉTODO CALCULAR PROMEDIO:
+    public float calcularPromedio(Alumno arrayAlumnoAuxiliar) {
 
         float promedio = 0;
 
-        for (Integer nota : arrayAlumnoAuxiliar.getArrayNotas()) {
+        for (Integer notaForEach : arrayAlumnoAuxiliar.getArrayNotas()) {
 
-            promedio += nota;
+            promedio += notaForEach;
         }
         return promedio / 3;
     }
