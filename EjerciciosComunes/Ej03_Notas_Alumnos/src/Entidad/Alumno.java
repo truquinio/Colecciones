@@ -24,7 +24,7 @@ public class Alumno {
 ///ATRIBUTOS:
     private String nombre;
     private ArrayList<Integer> arrayNotas = new ArrayList();
-   
+
 ///CONSTR:
     public Alumno() {
     }
@@ -37,7 +37,6 @@ public class Alumno {
     }
 
 ///G & S:
-
     public String getNombre() {
         return nombre;
     }
@@ -48,11 +47,5 @@ public class Alumno {
 
     public ArrayList<Integer> getArrayNotas() {
         return arrayNotas;
-    }
-
-    public void setArrayNotas(int Notas) {
-        {
-            this.arrayNotas.add(Notas);
-        }
     }
 }

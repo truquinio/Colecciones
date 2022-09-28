@@ -61,7 +61,7 @@ public class ServicioAlumno {
     Método notaFinal(): El usuario ingresa el nombre del alumno que quiere calcular su nota
     final y se lo busca en la lista de Alumnos. Si está en la lista, se llama al método. Dentro
     del método se usará la lista notas para calcular el promedio final de alumno. Siendo este
-    promedio final, devuelto por el método y mostrado en el main.
+    promedio final, devuelto por el método y mostrado en el main....
      */
     public void notaFinal() {
 
